@@ -1,5 +1,7 @@
 from django.urls import path, include
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
 
 # app_name = 'account'
 
@@ -18,3 +20,6 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('', include('django.contrib.auth.urls')),  # Все необходимые ссылки django предоставляет из коробки
 ]
+
+if settings.DEBUG:
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
