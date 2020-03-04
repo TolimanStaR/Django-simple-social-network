@@ -122,7 +122,7 @@ LOGOUT_URL = 'logout'
 
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'angmarking1488@gmail.com'
-EMAIL_HOST_PASSWORD = '528491pisos'
+EMAIL_HOST_PASSWORD = 'mypassword'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
