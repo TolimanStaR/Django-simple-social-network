@@ -19,6 +19,7 @@ urlpatterns = [
     path('register/', views.register, name='register'),
     path('', views.dashboard, name='dashboard'),
     path('', include('django.contrib.auth.urls')),  # Все необходимые ссылки django предоставляет из коробки
+    path('edit/', views.edit, name='edit'),
 ]
 
 if settings.DEBUG:
