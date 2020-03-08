@@ -3,6 +3,12 @@
 {% block title %}Рабочий стол{% endblock %}
 
 {% block content %}
-<h1>Dashboard</h1>
-    <p>Добро пожаловать в личное пространство</p>
+    <h1>Dashboard</h1>
+    <p>
+        Добро пожаловать в личное пространство
+        <br>
+        <a href="{% url "edit" %}">Настройте свой профиль</a>
+        или
+        <a href="{% url "password_change" %}">измените пароль</a>
+    </p>
 {% endblock %}

@@ -4,6 +4,7 @@ from django.http import HttpResponse
 from django.contrib.auth import authenticate, login
 from .forms import LoginForm, UserRegistrationForm, UserEditForm, ProfileEditForm
 from .models import Profile
+from django.contrib import messages
 
 
 def user_login(request):
@@ -63,6 +64,9 @@ def edit(request):
         if user_form.is_valid() and profile_form.is_valid():
             user_form.save()
             profile_form.save()
+            messages.success(request, 'Профиль успешно обновлён')
+        else:
+            messages.error(request, 'Ошибка при попытке обновить профиль')
 
     else:
         user_form = UserEditForm(instance=request.user)

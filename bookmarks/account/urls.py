@@ -20,6 +20,7 @@ urlpatterns = [
     path('', views.dashboard, name='dashboard'),
     path('', include('django.contrib.auth.urls')),  # Все необходимые ссылки django предоставляет из коробки
     path('edit/', views.edit, name='edit'),
+    path('social-auth/', include('social_django.urls', namespace='social')),
 ]
 
 if settings.DEBUG:
