@@ -4,11 +4,26 @@
 
 {% block content %}
     <h1>Dashboard</h1>
+
+    {% with total_images_created=request.user.imges_created.count %}
+        <p>
+            Добро пожаловать на рабочий стол. Вы можете сохранить
+            {{ total_images_created }} картинок{{ total_images_created|pluralize }}.
+        </p>
+    {% endwith %}
+
     <p>
-        Добро пожаловать в личное пространство
+        Перетащите кнопку в раздел закладок из меню в раздел закладок "картинки"
+        с других сайтов.
+        <a href="javascript:{% include "bookmarklet_launcher.js" %}" class="button">
+            Сохранить!
+        </a>
+    </p>
+
+    <p>
         <br>
-        <a href="{% url "edit" %}">Настройте свой профиль</a>
+        Вы также можете <a href="{% url "edit" %}">настроить профиль</a>
         или
-        <a href="{% url "password_change" %}">измените пароль</a>
+        <a href="{% url "password_change" %}">изменить пароль</a>.
     </p>
 {% endblock %}

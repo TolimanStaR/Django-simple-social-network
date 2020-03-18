@@ -14,14 +14,13 @@ def image_create(request):
             new_item = form.save(commit=False)
             new_item.user = request.user
             new_item.save()
+            form.save()
             messages.success(request, 'Картинка успешно добавлена')
             return redirect(new_item.get_absolute_url())
 
-        else:
-            form = ImageCreateForm(data=request.GET)
+    else:
+        form = ImageCreateForm(data=request.GET)
 
-        return render(request,
-                      'images/image/create.html',
-                      {'section': 'images', 'form': form, })
-
-    # TODO: Add a create.html template (since page 142)
+    return render(request,
+                  'images/image/create.html',
+                  {'section': 'images', 'form': form})
